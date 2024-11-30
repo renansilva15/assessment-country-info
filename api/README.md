@@ -22,6 +22,3 @@ npm run start
 ```
 
 To see if it is working go to http://localhost:3333/api-docs
-
----
-Made with :heart: by [renansilva15](https://github.com/renansilva15)
