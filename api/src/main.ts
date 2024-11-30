@@ -5,6 +5,9 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // TODO: Use CorsOptionsDelegate to protect
+  app.enableCors({ origin: true });
+
   const config = new DocumentBuilder()
     .setTitle('Country Info')
     .setVersion('v1')
