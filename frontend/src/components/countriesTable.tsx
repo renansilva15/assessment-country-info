@@ -2,9 +2,9 @@
 
 import { ROUTE_COUNTRIES } from '@/constants/routes';
 import { fetcher } from '@/utils/fetcher';
-import { Table } from 'lucide-react';
 import useSWR from 'swr';
 import {
+  Table,
   TableCaption,
   TableHeader,
   TableRow,
@@ -43,14 +43,14 @@ export function CountriesTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {dataCountriesMainInfo.map(
-          (country: { commonName: string; countryCode: string }) => (
+        {dataCountriesMainInfo.map((country: CountryMainInfo) => {
+          return (
             <TableRow key={country.countryCode}>
               <TableCell>{country.commonName}</TableCell>
               <TableCell>{country.countryCode}</TableCell>
             </TableRow>
-          ),
-        )}
+          );
+        })}
       </TableBody>
     </Table>
   );
