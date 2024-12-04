@@ -4,6 +4,7 @@ interface CountryEntityProps {
   countryCode: string;
   region: string;
   borders?: Omit<CountryEntityProps, 'borders'>[];
+  flagImageUrl?: string;
 }
 
 export class CountryEntity {
@@ -12,6 +13,7 @@ export class CountryEntity {
   readonly countryCode: string;
   readonly region: string;
   readonly borders: Omit<CountryEntity, 'borders'>[];
+  readonly flagImageUrl: string | null;
 
   constructor(props: CountryEntityProps) {
     Object.assign(this, {
@@ -19,6 +21,7 @@ export class CountryEntity {
       borders: (props.borders ?? []).map((country) => {
         return new CountryEntity(country);
       }),
+      flagImageUrl: props.flagImageUrl ?? null,
     });
   }
 }

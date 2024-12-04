@@ -1,15 +1,12 @@
 import { FindAllCountriesUseCaseOutputDto } from '../../domain/country/application/dto/find-all-countries.dto';
-import {
-  CountryMainInfo,
-  CountryRepository,
-} from '../../domain/country/enterprise/repositories/country.repository';
+import { FillCountriesRepository } from '../../domain/country/enterprise/repositories/country.repository';
 import { sharedAxiosInstance } from '../lib/axios';
 
 const NAGER_GET_AVAILABLE_COUNTRIES_URL =
   'https://date.nager.at/api/v3/AvailableCountries';
 
 export class CountryNagerAndCountriesNowRepository
-  implements CountryRepository
+  implements FillCountriesRepository
 {
   private getAvailableCountriesMapper(
     availableCountries,
